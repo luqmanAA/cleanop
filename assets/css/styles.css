@@ -2651,6 +2651,12 @@ blockquote {
     padding: 50px;
     box-shadow: 0 0 30px #000e521a;
 }
+.testimonial-mask.style2 {
+    background-color: var(--transparent);
+    box-shadow: none;
+    width: 90%;
+    overflow: visible;
+}
 .testimonial-mask {
     border-radius: var(--border-radius-20);
     background-color: var(--white-color);
@@ -4940,4 +4946,40 @@ blockquote {
 
 .service-2-section-wrapper {
   animation: slideInFromBottom 1s ease-out 0.3s forwards;
+}
+
+@media screen and (min-width: 1920px) {
+    .about-section-title {
+        width:65%
+    }
+
+    .container-fluid {
+        padding-left: 100px;
+        padding-right: 100px
+    }
+
+    .service-left-wrap {
+        top: 38%
+    }
+
+    .service-main-title {
+        font-size: 82px;
+        line-height: 94px
+    }
+
+    .testimonial-mask.style2 {
+        width: 100%
+    }
+
+    .about-section-grid-2 {
+        grid-template-columns: 9fr 3fr
+    }
+
+    .pagetitle-desc-box {
+        width: 60%
+    }
+
+    .appointment-title {
+        margin-right: 70px
+    }
 }

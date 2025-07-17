@@ -1,7 +1,19 @@
 <?php
-
+    $wide_testimonial = get_query_var('wide_testimonial', false);
+    if ($wide_testimonial) {
+        $wide_testimonial_class = 'style2';
+    } else {
+        $wide_testimonial_class = '';
+    }
 ?>
 <section class="testimonial-section section-padding">
+    <?php
+        $wide_testimonial = get_query_var('wide_testimonial', false);
+        if ($wide_testimonial): ?>
+            <div class="section-gradient-wrap">
+                <div class="shadow-gradient"></div>
+            </div>
+    <?php endif; ?>
     <div class="w-layout-blockcontainer container w-container">
         <div class="testimonial-section-wrapper">
             <div class="testimonial-section-title">
@@ -12,15 +24,15 @@
             <div class="testimonial-section-content">
                 <div class="testimonial-item-box">
                     <div data-delay="3200" data-animation="slide" class="testimonial-slider w-slider" data-autoplay="true" data-easing="ease" data-hide-arrows="false" data-disable-swipe="false" data-autoplay-limit="0" data-nav-spacing="3" data-duration="800" data-infinite="true">
-                        <div class="testimonial-mask w-slider-mask">
+                        <div class="testimonial-mask <?php echo esc_attr($wide_testimonial_class); ?> w-slider-mask">
                             <?php
                             $testimonials = new WP_Query([
                                 'post_type'      => 'testimonial',
-                                'posts_per_page' => -3,
+                                'posts_per_page' => 3,
                             ]);
                             if ($testimonials->have_posts()) :
                             while ($testimonials->have_posts()) : $testimonials->the_post();?>
-                                <div class="testimonial-slide w-slide">
+                                <div class="testimonial-slide <?php echo esc_attr($wide_testimonial_class); ?> w-slide">
                                     <div class="testimonial-item">
                                         <div class="testimonial-content">
                                             <div class="textimonial-quote-box">
@@ -61,17 +73,23 @@
                         <div class="slide-nav w-slider-nav w-round w-num"></div>
                     </div>
                 </div>
-                <div class="counter-item-box">
-                    <div class="counter-item">
-                        <h3 class="counter-number">99%</h3>
-                        <div class="counter-number-text">Customer satisfaction</div>
-                    </div>
-                    <div class="counter-item">
-                        <h3 class="counter-number">12m+</h3>
-                        <div class="counter-number-text">Amazing customer</div>
-                    </div>
-                </div>
+                <?php
+                    $wide_testimonial = get_query_var('wide_testimonial', false);
+                    if (!$wide_testimonial): ?>
+                        <div class="counter-item-box">
+                            <div class="counter-item">
+                                <h3 class="counter-number">99%</h3>
+                                <div class="counter-number-text">Customer satisfaction</div>
+                            </div>
+                            <div class="counter-item">
+                                <h3 class="counter-number">12m+</h3>
+                                <div class="counter-number-text">Amazing customer</div>
+                            </div>
+                        </div>
+                <?php endif; ?>
+                
             </div>
+            
         </div>
         <?php get_template_part('template-parts/partners-section'); ?>
     </div>

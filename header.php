@@ -48,8 +48,16 @@
 
 <body <?php body_class('body'); ?>>
 <?php wp_body_open(); ?>
+<?php 
+    $set_header_bg = get_query_var('set_header_bg', false);
+    if ($set_header_bg) {
+        $header_bg_class = 'bg-color';
+    } else {
+        $header_bg_class = '';
+    }
+?>
 <div class="page">
-    <section class="header">
+    <section class="header <?php echo esc_attr($header_bg_class); ?>">
         <div class="header-content-wrapper">
             <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav">
                 <div class="container w-container">

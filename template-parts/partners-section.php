@@ -3,7 +3,16 @@
 
 ?>
 
-<div class="client-content-wrapper">
+<?php 
+    $remove_top_border = get_query_var('remove_top_border', false);
+    if ($remove_top_border) {
+        $top_border_class = 'style2';
+    } else {
+        $top_border_class = '';
+    }
+?>
+
+<div class="client-content-wrapper <?php echo esc_attr($top_border_class); ?>">
     <div class="client-content">
         <div class="client-text-box">
             <div class="client-text">Partnering with top tiers to revolutionize cleaning services.</div>

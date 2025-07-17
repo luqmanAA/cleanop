@@ -89,5 +89,13 @@
                 </div>
             </div>
         </div>
+
+        <?php 
+            $include_partners = get_query_var('include_partners', false);
+            if ($include_partners): ?>
+                <?php set_query_var('remove_top_border', true); ?>
+                <?php get_template_part('template-parts/partners-section'); ?>
+                <div class="section-bottom-padding"></div>
+        <?php endif; ?>
     </div>
 </section>

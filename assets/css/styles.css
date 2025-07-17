@@ -4926,3 +4926,18 @@ blockquote {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); } /* Adjust -50% based on content width */
 }
+
+@keyframes slideInFromBottom {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.service-2-section-wrapper {
+  animation: slideInFromBottom 1s ease-out 0.3s forwards;
+}

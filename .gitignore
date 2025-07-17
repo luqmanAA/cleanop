@@ -1,0 +1,16 @@
+.hg 
+.hgignore 
+.idea 
+.hg/*
+.idea/*
+*.orig
+*venv/*
+*.venv/*
+*.sqlite3
+*.pyc
+*__pycacahe__*
+.idea
+*.sql
+rec.json
+*.DS_Store
+.env

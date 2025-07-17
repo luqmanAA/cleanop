@@ -146,7 +146,7 @@ add_filter('upload_mimes', 'allow_svg_upload');
 function add_service_svg_upload_meta_box() {
     add_meta_box(
         'service_svg_upload_meta_box',
-        'Service Icon (SVG File)',
+        'Service Icons (SVG Files)',
         'render_service_svg_upload_meta_box',
         'service',
         'normal',
@@ -157,25 +157,43 @@ add_action('add_meta_boxes', 'add_service_svg_upload_meta_box');
 
 function render_service_svg_upload_meta_box($post) {
     wp_nonce_field('save_service_svg_upload_meta_box', 'service_svg_upload_meta_box_nonce');
-    $svg_id = get_post_meta($post->ID, '_service_svg_icon_id', true);
-    $svg_url = $svg_id ? wp_get_attachment_url($svg_id) : '';
 
+    $svg1_id = get_post_meta($post->ID, '_service_svg_icon_id', true);
+    $svg2_id = get_post_meta($post->ID, '_service_svg_icon_id_2', true);
+
+    $svg1_url = $svg1_id ? wp_get_attachment_url($svg1_id) : '';
+    $svg2_url = $svg2_id ? wp_get_attachment_url($svg2_id) : '';
     ?>
+
     <p>
-        <label for="service_svg_icon"><strong>Upload SVG Icon:</strong></label><br>
-        <input type="hidden" name="service_svg_icon_id" id="service_svg_icon_id" value="<?php echo esc_attr($svg_id); ?>">
-        <input type="button" class="button button-secondary" id="upload_svg_button" value="Upload SVG">
-        <div id="svg-preview" style="margin-top:10px;">
-            <?php if ($svg_url): ?>
-                <p><strong>Current SVG:</strong></p>
-                <img src="<?php echo esc_url($svg_url); ?>" alt="SVG Preview" style="max-width:150px;">
+        <label><strong>Upload SVG Icon (Light Version):</strong></label><br>
+        <input type="hidden" name="service_svg_icon_id_1" id="service_svg_icon_id_1" value="<?php echo esc_attr($svg1_id); ?>">
+        <input type="button" class="button button-secondary upload_svg_button" data-target="1" value="Upload SVG 1">
+        <div id="svg-preview-1" style="margin-top:10px;">
+            <?php if ($svg1_url): ?>
+                <p><strong>Current SVG 1:</strong></p>
+                <img src="<?php echo esc_url($svg1_url); ?>" style="max-width:150px;">
             <?php endif; ?>
         </div>
     </p>
+
+    <p>
+        <label><strong>Upload SVG Icon (Dark Version):</strong></label><br>
+        <input type="hidden" name="service_svg_icon_id_2" id="service_svg_icon_id_2" value="<?php echo esc_attr($svg2_id); ?>">
+        <input type="button" class="button button-secondary upload_svg_button" data-target="2" value="Upload SVG 2">
+        <div id="svg-preview-2" style="margin-top:10px;">
+            <?php if ($svg2_url): ?>
+                <p><strong>Current SVG 2:</strong></p>
+                <img src="<?php echo esc_url($svg2_url); ?>" style="max-width:150px;">
+            <?php endif; ?>
+        </div>
+    </p>
+
     <script>
     jQuery(document).ready(function($) {
-        $('#upload_svg_button').click(function(e) {
+        $('.upload_svg_button').click(function(e) {
             e.preventDefault();
+            const target = $(this).data('target');
             let frame = wp.media({
                 title: 'Select or Upload SVG',
                 button: { text: 'Use this SVG' },
@@ -187,8 +205,8 @@ function render_service_svg_upload_meta_box($post) {
                     alert('Please select a valid SVG file.');
                     return;
                 }
-                $('#service_svg_icon_id').val(attachment.id);
-                $('#svg-preview').html('<p><strong>Current SVG:</strong></p><img src="'+attachment.url+'" style="max-width:150px;">');
+                $('#service_svg_icon_id_' + target).val(attachment.id);
+                $('#svg-preview-' + target).html('<p><strong>Current SVG ' + target + ':</strong></p><img src="'+attachment.url+'" style="max-width:150px;">');
             });
             frame.open();
         });
@@ -204,8 +222,12 @@ function save_service_svg_upload_meta_box($post_id) {
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
     if (!current_user_can('edit_post', $post_id)) return;
 
-    if (isset($_POST['service_svg_icon_id'])) {
-        update_post_meta($post_id, '_service_svg_icon_id', intval($_POST['service_svg_icon_id']));
+    if (isset($_POST['service_svg_icon_id_1'])) {
+        update_post_meta($post_id, '_service_svg_icon_id', intval($_POST['service_svg_icon_id_1']));
+    }
+
+    if (isset($_POST['service_svg_icon_id_2'])) {
+        update_post_meta($post_id, '_service_svg_icon_id_2', intval($_POST['service_svg_icon_id_2']));
     }
 }
 add_action('save_post_service', 'save_service_svg_upload_meta_box');

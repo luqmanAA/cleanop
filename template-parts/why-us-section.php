@@ -34,21 +34,24 @@
                     $steps = [
                         [
                             'label' => 'A',
-                            'title' => 'Select and book the cleaning service that best fits your needs',
-                            'desc'  => 'Lorem ipsum dolor sit amet consectetur vestibulum consequat mi dolor amet in vel facilisis est dui pretium molestie.',
+                            'title' => 'Request a Free Quote',
+                            'desc'  => 'Tell us what you need, and we’ll provide a clear estimate tailored to your property.',
                             'image' => 'step-img-1.avif',
+                            'btn_text' => 'Get a Free Quote',
                         ],
                         [
                             'label' => 'B',
-                            'title' => 'Experience a fresh, spotless home with our professional house cleaning',
-                            'desc'  => 'Lorem ipsum dolor sit amet consectetur vestibulum consequat mi dolor amet in vel facilisis est dui pretium molestie.',
+                            'title' => 'Schedule Your Service',
+                            'desc'  => 'Choose a date and time that works for you. Our team is punctual, flexible, and always ready to deliver.',
                             'image' => 'step-img-2.avif',
+                            'btn_text' => 'Pick a Time',
                         ],
                         [
                             'label' => 'C',
-                            'title' => 'These steps outline a clear and customer-focused approach to our services.',
-                            'desc'  => 'Lorem ipsum dolor sit amet consectetur vestibulum consequat mi dolor amet in vel facilisis est dui pretium molestie.',
+                            'title' => 'Enjoy the Results',
+                            'desc'  => 'We show up and leave your space sparkling. Sit back and enjoy the fresh, clean finish.',
                             'image' => 'step-img-3.avif',
+                            'btn_text' => 'Book Now',
                         ],
                     ];
 
@@ -67,7 +70,7 @@
                                     <div class="step-button-box">
                                         <div class="button-block">
                                             <a href="<?php echo esc_url(site_url('/contact-us')); ?>" class="button w-inline-block">
-                                                <div class="button-text">Contact us</div>
+                                                <div class="button-text"><?php echo esc_html($step['btn_text']); ?></div>
                                             </a>
                                         </div>
                                     </div>

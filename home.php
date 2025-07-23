@@ -1,84 +1,117 @@
-<?php
-/*
-Template Name: Custom Blog Page
-*/
-get_header();
-?>
+<?php set_query_var('set_header_bg', true); ?>
+<?php get_header(); ?>
 
-<div class="page-title">
-    <div class="w-layout-blockcontainer container w-container">
-        <div class="sub-title">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/sub-title.svg" loading="lazy" alt="Icon"/>
-            <div>Our Blogs</div>
-        </div>
-        <h1 class="main-title">News &amp; Articles</h1>
+
+<section class="pagetitle-section">
+    <div class="section-gradient-wrap">
+        <div class="shadow-gradient page-title"></div>
     </div>
-</div>
-
-<div class="page-data">
-    <section class="blogs">
-        <div class="w-layout-blockcontainer container w-container">
-            <div class="w-dyn-list">
-                <div role="list" class="post-list w-dyn-items">
-                    <?php
-                    $paged = get_query_var('paged') ?: 1;
-                    $blog_posts = new WP_Query([
-                        'post_type' => 'post',
-                        'posts_per_page' => 6,
-                        'paged' => $paged,
-                    ]);
-                    if ($blog_posts->have_posts()) :
-                        while ($blog_posts->have_posts()) : $blog_posts->the_post(); ?>
-                            <div role="listitem" class="post-item w-dyn-item">
-                                <a data-w-id="c1e95c48-1432-c366-5545-91ef9c4f6209" href="<?php the_permalink(); ?>" class="post-link w-inline-block">
-                                    <div class="post-img">
-                                        <?php if (has_post_thumbnail()) : ?>
-                                            <img src="<?php the_post_thumbnail_url('medium'); ?>" loading="lazy" alt="<?php the_title_attribute(); ?>" class="post-image"/>
-                                        <?php else : ?>
-                                            <img src="<?php echo get_template_directory_uri(); ?>/assets/default-post.png" loading="lazy" alt="Default Post Image" class="post-image"/>
-                                        <?php endif; ?>
-                                    </div>
-                                    <div class="post-data">
-                                        <div class="post-info">
-                                            <div><?php echo get_the_date(); ?></div>
-                                        </div>
-                                        <h4 class="post-title"><?php the_title(); ?></h4>
-                                        <div class="post-bottom">
-                                            <div>
-                                                <?php
-                                                $category = get_the_category();
-                                                echo $category ? esc_html($category[0]->name) : 'Uncategorized';
-                                                ?>
-                                            </div>
-                                            <div class="secondary-btn">
-                                                <div>Read Article</div>
-                                                <img src="<?php echo get_template_directory_uri(); ?>/assets/arrow.svg" loading="lazy" alt="Arrow" class="arrow"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        <?php endwhile; ?>
-                    <?php else : ?>
-                        <p>No posts found.</p>
-                    <?php endif; ?>
-                </div>
-
-                <!-- Optional Pagination -->
-                <div class="pagination">
-                    <?php
-                    echo paginate_links([
-                        'total' => $blog_posts->max_num_pages,
-                        'prev_text' => '« Prev',
-                        'next_text' => 'Next »',
-                    ]);
-                    ?>
-                </div>
-
-                <?php wp_reset_postdata(); ?>
+    <div class="w-layout-blockcontainer container w-container">
+        <div class="pagetitle-section-wrapper">
+            <div class="pagetitle-title-box">
+                <h1 class="pagetitle-title">Our Blog</h1>
             </div>
         </div>
-    </section>
-</div>
+    </div>
+</section>
+<section class="blog-2-section section-padding">
+    <div class="w-layout-blockcontainer container w-container">
+        <div class="blog-section-wrapper">
+            <div class="w-layout-grid blog-section-grid">
+                <div class="blog-item-content">
+                    <div class="w-dyn-list">
+                        <div role="list" class="w-dyn-items">
+                            <div role="listitem" class="w-dyn-item">
+                                <div class="blog-item-block">
+                                    <div class="blog-thumbnail">
+                                        <img loading="lazy" src="https://cdn.prod.website-files.com/676d22fc9ecfb49dfddfa35a/6780b8dd45dc5414a2a0736c_blog-1.avif" alt="Blog Image" class="blog-image"/>
+                                    </div>
+                                    <div class="blog-content">
+                                        <div class="blog-author-box">
+                                            <div class="blog-author-name">Tom Harris</div>
+                                            <div class="blog-date">October 10, 2023</div>
+                                        </div>
+                                        <div class="blog-title-box">
+                                            <a href="/blogs/top-reasons-to-invest-in-recurring-cleaning-services-and-how-they-save-you-time-and-money" class="blog-title">Top reasons to invest in recurring cleaning services and how they save you time and money</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-item-content">
+                    <div class="blog-item-box first-child">
+                        <div class="w-dyn-list">
+                            <div role="list" class="w-dyn-items">
+                                <div role="listitem" class="w-dyn-item">
+                                    <div class="blog-item-block">
+                                        <div class="blog-thumbnail style2">
+                                            <img loading="lazy" src="https://cdn.prod.website-files.com/676d22fc9ecfb49dfddfa35a/6780b8ef18dae705d989ba91_blog-2.avif" alt="Blog Image" class="blog-image"/>
+                                        </div>
+                                        <div class="blog-content style2">
+                                            <div class="blog-author-box">
+                                                <div class="blog-author-name">Anna White</div>
+                                                <div class="blog-date">October 9, 2023</div>
+                                            </div>
+                                            <div class="blog-title-box">
+                                                <a href="/blogs/the-ultimate-cleaning-checklist-tips-and-tricks-to-keep-every-corner-of-your-home-sparkling" class="blog-title">The ultimate cleaning checklist: Tips and tricks to keep every corner of your home sparkling</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-item-box style2">
+                        <div class="w-dyn-list">
+                            <div role="list" class="w-dyn-items">
+                                <div role="listitem" class="w-dyn-item">
+                                    <div class="blog-item-block">
+                                        <div class="blog-thumbnail style2">
+                                            <img loading="lazy" src="https://cdn.prod.website-files.com/676d22fc9ecfb49dfddfa35a/6780b8fdbd47695e2083d642_blog-3.avif" alt="Blog Image" class="blog-image"/>
+                                        </div>
+                                        <div class="blog-content style2">
+                                            <div class="blog-author-box">
+                                                <div class="blog-author-name">Chris Black</div>
+                                                <div class="blog-date">October 8, 2023</div>
+                                            </div>
+                                            <div class="blog-title-box">
+                                                <a href="/blogs/from-cluttered-to-spotless-how-regular-cleaning-improves-your-mental-and-physical-health" class="blog-title">From cluttered to spotless: How regular cleaning improves your mental and physical health</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-item-box last-child">
+                        <div class="w-dyn-list">
+                            <div role="list" class="w-dyn-items">
+                                <div role="listitem" class="w-dyn-item">
+                                    <div class="blog-item-block">
+                                        <div class="blog-thumbnail style2">
+                                            <img loading="lazy" src="https://cdn.prod.website-files.com/676d22fc9ecfb49dfddfa35a/6780b90bbd3bbfd245aac2cb_blog-4.avif" alt="Blog Image" class="blog-image"/>
+                                        </div>
+                                        <div class="blog-content style2">
+                                            <div class="blog-author-box">
+                                                <div class="blog-author-name">Laura Green</div>
+                                                <div class="blog-date">October 7, 2023</div>
+                                            </div>
+                                            <div class="blog-title-box">
+                                                <a href="/blogs/10-proven-tips-to-keep-your-home-sparkling-clean-between-professional-visits" class="blog-title">10 proven tips to keep your home sparkling clean between professional visits</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 <?php get_footer(); ?>

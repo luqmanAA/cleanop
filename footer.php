@@ -12,11 +12,11 @@
         <div class="top-footer">
             <div class="footer-flex">
                 <div id="w-node-_38da9ead-aa0f-cd38-de72-d2315623f173-5623f16d" class="footer-subscribe-box">
-                    <div class="logo-wrapper">
+                    <!-- <div class="logo-wrapper">
                         <a href="<?php echo esc_url(home_url('/')); ?>" class="logo-block w-nav-brand">
                             <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/logo-white.svg'); ?>" loading="lazy" alt="Logo" class="logo" />
                         </a>
-                    </div>
+                    </div> -->
                     <div class="footer-info-box">
                         <div class="footer-title-box">
                             <div class="footer-title">Subscribe to our newsletter</div>

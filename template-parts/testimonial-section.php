@@ -18,7 +18,7 @@
         <div class="testimonial-section-wrapper">
             <div class="testimonial-section-title">
                 <div class="section-title-box">
-                    <h2 class="section-title">What our clients say about us</h2>
+                    <h2 class="section-title">Customer Testimonials</h2>
                 </div>
             </div>
             <div class="testimonial-section-content">
@@ -78,11 +78,11 @@
                     if (!$wide_testimonial): ?>
                         <div class="counter-item-box">
                             <div class="counter-item">
-                                <h3 class="counter-number">99%</h3>
+                                <h3 class="counter-number">100%</h3>
                                 <div class="counter-number-text">Customer satisfaction</div>
                             </div>
                             <div class="counter-item">
-                                <h3 class="counter-number">12m+</h3>
+                                <h3 class="counter-number">500+</h3>
                                 <div class="counter-number-text">Amazing customer</div>
                             </div>
                         </div>

@@ -1,3 +1,4 @@
+<?php set_query_var('set_header_bg', true); ?>
 <?php get_header(); ?>
 
 <section class="pagetitle-section">
@@ -7,7 +8,7 @@
     <div class="w-layout-blockcontainer container w-container">
         <div class="pagetitle-section-wrapper">
             <div class="pagetitle-title-box">
-                <h1 data-w-id="6817c074-d6e3-46ab-9cb5-c71e8cccfc11" class="pagetitle-title">Our service</h1>
+                <h1 data-w-id="6817c074-d6e3-46ab-9cb5-c71e8cccfc11" class="pagetitle-title">Our Services</h1>
             </div>
         </div>
     </div>
@@ -40,7 +41,7 @@
                                         </div>
                                         <div class="service-content-box">
                                             <h3 class="service-title dark"><?php the_title(); ?></h3>
-                                            <p class="service-desc dark"><?php the_excerpt(); ?></p>
+                                            <div class="service-desc dark"><?php the_excerpt(); ?></div>
                                         </div>
                                     </div>
                                 </a>

@@ -19,9 +19,6 @@
     <meta name="twitter:description" content="Creating the first impression, guiding navigation, and driving user engagement and conversions." />
     <meta name="twitter:card" content="summary_large_image" />
     
-    <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/assets/images/32x32.png" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/assets/images/256x256.png" />
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/styles.css" />
@@ -64,7 +61,7 @@
                     <div class="site-navigation">
                         <div class="logo-wrapper">
                             <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo-block w-nav-brand">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.svg" loading="lazy" alt="<?php bloginfo('name'); ?>" class="logo"/>
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.png" loading="lazy" alt="<?php bloginfo('name'); ?>" class="logo"/>
                             </a>
                         </div>
 

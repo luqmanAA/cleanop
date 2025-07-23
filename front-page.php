@@ -8,8 +8,8 @@
             <div class="hero-section-wrapper">
                 <div class="hero-section-content">
                     <div data-w-id="69b20f0a-23f5-f91c-7b15-ca0ca375a788" class="hero-section-title-box">
-                        <div class="hero-sub-title">24/7 emergency support</div>
-                        <h1 class="hero-title">Your affordable cleaning service</h1>
+                        <div class="hero-sub-title">Located in Monterey</div>
+                        <h1 class="hero-title">Professional Exterior Cleaning Services for Spotless Results.</h1>
                     </div>
                     <div data-w-id="a2200691-a6ad-cd52-edc6-fa548c36a835" class="form-block-wrap">
                         <h2 class="form-title">Let us know how we can help</h2>
@@ -64,8 +64,7 @@
             <div data-w-id="48c9dafc-ad43-6343-471f-7f54711c3b98" class="about-section-wrapper">
                 <div class="about-section-title">
                     <div class="about-text">
-                        At cleanflow, we believe a clean home is the foundation for a healthier, <span class="about-text-span">happier life.</span>
-                        Our mission is to provide top-quality cleaning services tailored to your needs, <span class="about-text-span">Ensuring your space shines</span>
+                        At Cypress Window Cleaning, we believe a clean exterior is the fi rst step to a beautiful, well-maintained home. Our mission is to provide top-quality exterior cleaning services tailored to your property's needs. From windows to roofs, we make sure your space shines from the outside in.
                     </div>
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/frame-1.svg" loading="lazy" alt="icon" class="about-icon icon-image1"/>
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/frame-2.svg" loading="lazy" alt="icon" class="about-icon icon-image2"/>
@@ -78,21 +77,18 @@
                             </div>
                         </div>
                         <div id="w-node-daeabb09-8b41-0479-9f6a-325e3a54406d-fb6cd8c2" class="about-contact-box">
-                            <div class="single-image-wrap">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/single-img-2.avif" loading="lazy" sizes="(max-width: 479px) 100vw, (max-width: 767px) 96vw, (max-width: 991px) 500px, 240px" srcset="<?php echo get_template_directory_uri(); ?>/assets/images/single-img-2-p-500.avif 500w, <?php echo get_template_directory_uri(); ?>/assets/images/single-img-2.avif 961w" alt="Single Image" class="single-image style2"/>
-                            </div>
                             <div class="about-content-wrap">
                                 <div class="section-title-box">
-                                    <h2 class="section-title">We work many fields to clean your area</h2>
-                                    <p class="section-desc">Lorem ipsum dolor sit amet consectetur. Ut suspendisse iaculis bibendum nunc pellentesque malesuada. Sed magna accumsan nibh eros viverra lobortis facilisis </p>
-                                </div>
-                            </div>
-                            <div class="ratings-content-box">
-                                <h3 class="rating-title">Ratings 4.5</h3>
-                                <div class="rating-text">Clients praise our exceptional work.</div>
-                                <div class="rating-image-box">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/avtar.avif" loading="lazy" alt="Image" class="rating-image"/>
-                                    <div class="rating-client-count">677k Clients globally</div>
+                                    <h2 class="section-title">We're not just cleaners; we're caretakers.</h2>
+                                    <p class="section-desc">
+                                        We treat the exterior of your home or business just like we would ours. Our team combines professional-grade equipment with eco-conscious methods to deliver outstanding, damage-free results every time.
+                                    </p>
+                                    <!-- <ul class="section-checklist">
+                                        <li><span class="checklst-icon">✓</span> Reliable & On-Time</li>
+                                        <li><span class="checklst-icon">✓</span> Fully Insured</li>
+                                        <li><span class="checklst-icon">✓</span> Satisfaction Guaranteed</li>
+                                    </ul> -->
+
                                 </div>
                             </div>
                         </div>
@@ -104,8 +100,8 @@
 
     <?php get_template_part('template-parts/services-section'); ?>
     <?php get_template_part('template-parts/why-us-section'); ?>
-    <?php get_template_part('template-parts/portfolio-section'); ?>
-    <?php get_template_part('template-parts/team-section'); ?>
+    <!-- <?php get_template_part('template-parts/portfolio-section'); ?> -->
+    <!-- <?php get_template_part('template-parts/team-section'); ?> -->
     <?php get_template_part('template-parts/cta-section'); ?>
     <?php get_template_part('template-parts/testimonial-section'); ?>
 

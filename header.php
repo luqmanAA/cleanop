@@ -89,7 +89,7 @@
 
                         <div class="header-btn">
                             <div class="button-block">
-                                <a href="/appointment" class="button w-inline-block">
+                                <a href="/contact-us" class="button w-inline-block">
                                     <div class="button-text">Book an appointment</div>
                                 </a>
                             </div>

@@ -16,12 +16,12 @@
                 </div>
                 <div data-w-id="b1af1f13-bd59-e066-f157-9b6093028090" class="cta-button-box">
                     <div class="button-block">
-                        <a href="#" class="button border-btn white-border w-inline-block">
+                        <a href="/contact-us" class="button border-btn white-border w-inline-block">
                             <div class="button-text">Contact us</div>
                         </a>
                     </div>
                     <div class="button-block">
-                        <a href="#" class="button style2 w-inline-block">
+                        <a href="/contact-us" class="button style2 w-inline-block">
                             <div class="button-text">Get a Free Estimate</div>
                         </a>
                     </div>

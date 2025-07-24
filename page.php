@@ -17,4 +17,8 @@
 
 <?php the_content(); ?>
 
+<?php if (get_post_meta(get_the_ID(), '_include_posts', true)) : ?>
+    <?php get_template_part('template-parts/posts-block'); ?>
+<?php endif; ?>
+
 <?php get_footer(); ?>

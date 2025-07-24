@@ -41,7 +41,7 @@
                                             </div>
                                             <div class="service-right-wrap">
                                                 <div class="service-image-box">
-                                                    <img src="<?php the_post_thumbnail_url('medium'); ?>" loading="lazy" alt="<?php the_title_attribute(); ?>" class="service-image"/>
+                                                    <img src="<?php the_post_thumbnail_url(); ?>" loading="lazy" alt="<?php the_title_attribute(); ?>" class="service-image"/>
                                                 </div>
                                             </div>
                                             <div class="service-content-wrap">

@@ -28,7 +28,7 @@
                             <?php
                             $testimonials = new WP_Query([
                                 'post_type'      => 'testimonial',
-                                'posts_per_page' => 3,
+                                'posts_per_page' => 5,
                             ]);
                             if ($testimonials->have_posts()) :
                             while ($testimonials->have_posts()) : $testimonials->the_post();?>

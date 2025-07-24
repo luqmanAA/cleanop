@@ -4,6 +4,8 @@ function setup() {
     add_theme_support('post-thumbnails');
     add_theme_support('automatic-feed-links');
     add_theme_support('html5', array('search-form', 'comment-form', 'comment-list', 'gallery', 'caption'));
+    add_theme_support('editor-styles');
+    add_theme_support('page-templates');
 }
 add_action('after_setup_theme', 'setup');
 
@@ -70,6 +72,7 @@ add_action('init', 'register_cpts');
 function enqueue_scripts() {
     // wp_enqueue_style('accornweb-style', get_stylesheet_uri());
     wp_enqueue_style('main-style', get_stylesheet_uri());
+    wp_enqueue_style('fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
 }
 
 add_action('wp_enqueue_scripts', 'enqueue_scripts');
@@ -91,23 +94,8 @@ function render_page_blocks_meta_box($post) {
     wp_nonce_field('save_page_blocks_meta', 'page_blocks_meta_nonce');
 
     // Get saved values
-    $volunteers = get_post_meta($post->ID, '_include_volunteers', true);
-    $faq = get_post_meta($post->ID, '_include_faq', true);
     $posts = get_post_meta($post->ID, '_include_posts', true);
     ?>
-
-    <p>
-        <label>
-            <input type="checkbox" name="include_volunteers" value="1" <?php checked($volunteers, '1'); ?>>
-            Include Volunteer Block
-        </label>
-    </p>
-    <p>
-        <label>
-            <input type="checkbox" name="include_faq" value="1" <?php checked($faq, '1'); ?>>
-            Include FAQ Block
-        </label>
-    </p>
     <p>
         <label>
             <input type="checkbox" name="include_posts" value="1" <?php checked($posts, '1'); ?>>
@@ -128,8 +116,6 @@ function save_page_blocks_meta($post_id) {
     if (!current_user_can('edit_page', $post_id)) return;
 
     // Save each checkbox
-    update_post_meta($post_id, '_include_volunteers', isset($_POST['include_volunteers']) ? '1' : '');
-    update_post_meta($post_id, '_include_faq', isset($_POST['include_faq']) ? '1' : '');
     update_post_meta($post_id, '_include_posts', isset($_POST['include_posts']) ? '1' : '');
 }
 add_action('save_post', 'save_page_blocks_meta');
@@ -268,3 +254,105 @@ function save_service_svg_upload_meta_box($post_id) {
     }
 }
 add_action('save_post_service', 'save_service_svg_upload_meta_box');
+
+add_filter('wpcf7_autop_or_not', '__return_false');
+
+function allow_menu_html_icons($item_output, $item, $depth, $args) {
+    // Remove escaping so HTML in Navigation Label is rendered
+    return $args->before . $item->title . $args->after;
+}
+add_filter('walker_nav_menu_start_el', 'allow_menu_html_icons', 10, 4);
+
+
+function mytheme_customize_register($wp_customize) {
+    // Add section
+    $wp_customize->add_section('global_settings_section', [
+        'title'    => __('Global Settings', 'mytheme'),
+        'priority' => 30,
+    ]);
+
+    // Add setting for global contact form shortcode
+    $wp_customize->add_setting('global_contact_form_shortcode', [
+        'default'           => '',
+        'sanitize_callback' => 'sanitize_text_field',
+        'transport'         => 'refresh',
+    ]);
+
+    // Add control for contact form shortcode
+    $wp_customize->add_control('global_contact_form_shortcode', [
+        'label'       => __('Default Contact Form 7 Shortcode', 'mytheme'),
+        'section'     => 'global_settings_section',
+        'type'        => 'text',
+        'input_attrs' => [
+            'placeholder' => '[contact-form-7 id="123" title="Contact form"]',
+        ],
+    ]);
+
+    // Add setting for Thank You page URL
+    $wp_customize->add_setting('global_thank_you_page_url', [
+        'default'           => '',
+        'sanitize_callback' => 'esc_url_raw',
+        'transport'         => 'refresh',
+    ]);
+
+    // Add control for Thank You page
+    $wp_customize->add_control('global_thank_you_page_url', [
+        'label'       => __('Thank You Page URL', 'mytheme'),
+        'section'     => 'global_settings_section',
+        'type'        => 'url',
+        'input_attrs' => [
+            'placeholder' => '/thank-you',
+        ],
+    ]);
+
+    // Add setting for Facebook URL
+    $wp_customize->add_setting('global_facebook_url', [
+        'default'           => '',
+        'sanitize_callback' => 'esc_url_raw',
+        'transport'         => 'refresh',
+    ]);
+
+    // Add control for Facebook URL
+    $wp_customize->add_control('global_facebook_url', [
+        'label'       => __('Facebook URL', 'mytheme'),
+        'section'     => 'global_settings_section',
+        'type'        => 'url',
+        'input_attrs' => [
+            'placeholder' => 'https://facebook.com/yourpage',
+        ],
+    ]);
+
+    $wp_customize->add_setting('global_google_review_shortcode', [
+        'default'           => '',
+        'sanitize_callback' => 'sanitize_text_field',
+        'transport'         => 'refresh',
+    ]);
+
+    $wp_customize->add_control('global_google_review_shortcode', [
+        'label'       => __('Google Review Shortcode', 'mytheme'),
+        'section'     => 'global_settings_section',
+        'type'        => 'text',
+        'input_attrs' => [
+            'placeholder' => '[google-reviews]',
+        ],
+    ]);
+
+}
+add_action('customize_register', 'mytheme_customize_register');
+
+add_action('template_redirect', function () {
+    // Set the slug of the page you want to protect
+    $restricted_slug = 'thank-you'; // Change to your actual slug
+
+    if (is_page($restricted_slug)) {
+        $referrer = wp_get_referer();
+        $site_url = home_url();
+
+        // If no referrer or referrer is not from this site
+        if (empty($referrer) || strpos($referrer, $site_url) !== 0) {
+            // Redirect to homepage or another page
+            wp_redirect($site_url);
+            exit;
+        }
+    }
+});

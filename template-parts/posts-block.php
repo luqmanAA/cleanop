@@ -1,64 +1,83 @@
-<section class="blogs">
+<section class="blog-section section-padding">
     <div class="w-layout-blockcontainer container w-container">
-        <div class="section-title">
-            <div class="sub-title">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/sub-title.svg" loading="lazy" alt="Icon"/>
-                <div>Our Blogs</div>
+        <div class="blog-section-wrapper">
+            <div class="blog-section-title">
+                <div class="section-title-box">
+                    <h2 class="section-title">Explore our blog & articles</h2>
+                </div>
             </div>
-            <h2 class="title">News & Articles</h2>
-        </div>
-        <div class="w-dyn-list">
-            <div role="list" class="post-list w-dyn-items">
-                <?php
-                $recent_posts = new WP_Query([
-                    'post_type'      => 'post',
-                    'posts_per_page' => 3,
-                ]);
-                if ($recent_posts->have_posts()) :
-                    while ($recent_posts->have_posts()) : $recent_posts->the_post(); ?>
-                        <div role="listitem" class="post-item w-dyn-item">
-                            <a href="<?php the_permalink(); ?>" class="post-link w-inline-block">
-                                <div class="post-img">
-                                    <?php if (has_post_thumbnail()) : ?>
-                                        <img src="<?php the_post_thumbnail_url('medium'); ?>" loading="lazy" alt="<?php the_title_attribute(); ?>" class="post-image"/>
-                                    <?php else : ?>
-                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/default-post.png" loading="lazy" alt="Default Post Image" class="post-image"/>
-                                    <?php endif; ?>
-                                </div>
-                                <div class="post-data">
-                                    <div class="post-info">
-                                        <div><?php echo get_the_date(); ?></div>
-                                    </div>
-                                    <h4 class="post-title"><?php the_title(); ?></h4>
-                                    <div class="post-bottom">
-                                        <div>
-                                            <?php
-                                            $category = get_the_category();
-                                            if ($category) {
-                                                echo esc_html($category[0]->name);
-                                            }
-                                            ?>
-                                        </div>
-                                        <div class="secondary-btn">
-                                            <div>Read Article</div>
-                                            <img src="<?php echo get_template_directory_uri(); ?>/assets/arrow.svg" loading="lazy" alt="Arrow" class="arrow"/>
+            <div class="blog-section-content">
+                <div class="w-layout-grid blog-section-grid">
+                    <?php
+                    $recent_posts = new WP_Query([
+                        'post_type'      => 'post',
+                        'posts_per_page' => 4,
+                    ]);
+                    $counter = 0;
+                    if ($recent_posts->have_posts()) :
+                        $recent_posts->the_post(); ?>
+                        <div class="blog-item-content">
+                            <div class="w-dyn-list">
+                                <div role="list" class="w-dyn-items">
+                                    <div role="listitem" class="w-dyn-item">
+                                        <div class="blog-item-block">
+                                            <div class="blog-thumbnail">
+                                                <img loading="lazy" src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php echo get_the_title(); ?>" class="blog-image"/>
+                                            </div>
+                                            <div class="blog-content">
+                                                <div class="blog-author-box">
+                                                    <div class="blog-author-name"><?php echo get_the_author(); ?></div>
+                                                    <div class="blog-date"><?php echo get_the_date(); ?></div>
+                                                </div>
+                                                <div class="blog-title-box">
+                                                    <a href="<?php echo get_permalink(); ?>" class="blog-title"><?php echo get_the_title(); ?></a>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </a>
+                            </div>
                         </div>
-                    <?php endwhile;
-                    wp_reset_postdata();
-                else : ?>
-                    <p>No posts found.</p>
-                <?php endif; ?>
+
+                        <div class="blog-item-content">
+                            <?php
+                                $box_classes = ['first-child', 'style2', 'last-child'];
+                                $post_index = 0;
+                                while ($recent_posts->have_posts()) :
+                                    $recent_posts->the_post();
+                                    $class = isset($box_classes[$post_index]) ? $box_classes[$post_index] : '';
+                                ?>
+                                <div class="blog-item-box <?php echo esc_attr($class); ?>">
+                                    <div class="w-dyn-list">
+                                        <div role="list" class="w-dyn-items">
+                                            <div role="listitem" class="w-dyn-item">
+                                                <div class="blog-item-block">
+                                                    <div class="blog-thumbnail style2">
+                                                        <img loading="lazy" src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php echo get_the_title(); ?>" class="blog-image"/>
+                                                    </div>
+                                                    <div class="blog-content style2">
+                                                        <div class="blog-author-box">
+                                                            <div class="blog-author-name"><?php echo get_the_author(); ?></div>
+                                                            <div class="blog-date"><?php echo get_the_date(); ?></div>
+                                                        </div>
+                                                        <div class="blog-title-box">
+                                                            <a href="<?php echo get_permalink(); ?>" class="blog-title"><?php echo get_the_title(); ?></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php $post_index++; endwhile; ?>
+                        </div>
+                        <?php
+                        wp_reset_postdata();
+                    else : ?>
+                        <p>No posts found.</p>
+                    <?php endif; ?>
+                </div>
             </div>
-        </div>
-        <div class="button-wrap right">
-            <a href="<?php echo esc_url(get_option('page_for_posts') ? get_permalink(get_option('page_for_posts')) : get_post_type_archive_link('post')); ?>" class="primary-btn w-inline-block">
-                <div>View All Blogs</div>
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/arrow-white.svg" loading="lazy" alt="Arrow" class="arrow"/>
-            </a>
         </div>
     </div>
 </section>

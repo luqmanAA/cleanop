@@ -1,64 +1,55 @@
-<?php
-get_header();
-?>
+<?php set_query_var('set_header_bg', true); ?>
+<?php get_header(); ?>
 
-<div class="page-title">
+<?php the_post(); ?>
+
+
+<section class="pagetitle-section style2">
     <div class="w-layout-blockcontainer container w-container">
-        <div class="post-title-wrap">
-            <div class="blog-title-wrap">
-                <div class="post-info">
-                    <div class="author-name">
-                        <div class="body-small">
-                            <?php
-                            $category = get_the_category();
-                            if ($category) {
-                                echo esc_html($category[0]->name);
-                            }
-                            ?>
-                        </div>
-                    </div>
-                    <div class="divider"></div>
-                    <div class="body-small"><?php echo get_the_date(); ?></div>
+        <div class="pagetitle-section-wrapper">
+            <div class="pagetitle-title-box">
+                <div class="blog-author-box center">
+                    <div class="blog-author-name"><?php the_author(); ?></div>
+                    <div class="blog-date"><?php echo get_the_date(); ?></div>
                 </div>
-                <h1 class="post-main-title"><?php the_title(); ?></h1>
+                <h1 class="pagetitle-title small-detail-title"><?php the_title(); ?></h1>
             </div>
-            <!-- Optional Author Info -->
-            <!--
-            <div class="post-author">
-                <div class="author-img">
-                    <?php echo get_avatar(get_the_author_meta('ID'), 48); ?>
-                </div>
-                <div class="author-name">
-                    <div class="body-small">By</div>
-                    <div class="body-small"><?php the_author(); ?></div>
-                </div>
-            </div>
-            -->
         </div>
     </div>
-</div>
+</section>
 
-<div class="page-data">
-    <section class="post-main">
-        <div class="w-layout-blockcontainer container w-container">
-            <?php if (has_post_thumbnail()) : ?>
-                <div class="post-maini-mg">
-                    <img 
-                        src="<?php the_post_thumbnail_url('large'); ?>" 
-                        loading="eager"
-                        alt="<?php the_title_attribute(); ?>"
-                        sizes="(max-width: 479px) 92vw, (max-width: 767px) 95vw, 96vw"
-                        srcset="<?php echo wp_get_attachment_image_srcset(get_post_thumbnail_id()); ?>"
-                        class="post-main-image"
-                    />
+<section class="blog-details-section">
+    <div class="w-layout-blockcontainer container w-container">
+        <div class="blog-details-section-wrapper">
+            <div class="single-image-wrap">
+                <img src="<?php the_post_thumbnail_url(); ?>" loading="lazy" alt="Blog Image" sizes="(max-width: 479px) 100vw, (max-width: 767px) 96vw, (max-width: 991px) 97vw, 100vw" srcset="<?php the_post_thumbnail_url(); ?> 500w, <?php the_post_thumbnail_url(); ?> 1300w" class="single-image"/>
+            </div>
+            <div class="blog-details-content-wrap">
+                <div class="w-layout-grid blog-details-grid">
+                    <div data-w-id="73b918c8-b6b9-2e0d-d56a-6a0b9582857c" class="blog-details-social-box">
+                        <div class="blog-details-social-item">
+                            <div class="blog-social-item">
+                                <div class="social-item-title">Stay connected</div>
+                                <div class="social-item-box">
+                                    <?php
+                                        $facebook_url = get_theme_mod('global_facebook_url');
+                                    ?>
+                                    <a href="<?php echo esc_html($facebook_url); ?>" class="social-link">Facebook</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-w-id="a4c6ad95-f1cb-671b-0ec3-1a275c921899" class="blog-details-content-box">
+                        <div class="blog-rich-text-box">
+                            <div class="blog-rich-text w-richtext">
+                                <?php the_content(); ?>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            <?php endif; ?>
-
-            <div class="post-details w-richtext">
-                <?php the_content(); ?>
             </div>
         </div>
-    </section>
-</div>
+    </div>
+</section>
 
 <?php get_footer(); ?>

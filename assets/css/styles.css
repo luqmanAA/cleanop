@@ -1824,7 +1824,7 @@ blockquote {
 }
 .hero-section {
     background-color: var(--dark-color);
-    background-image: url(../images/banner-img.avif);
+    background-image: linear-gradient(#00000080, #00000080), url(../images/banner-img.jpg);
     background-position: 50%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -2353,6 +2353,10 @@ blockquote {
     margin-bottom: 15px;
     padding: 0 20px;
 }
+.text-field-no-border {
+    border: none;
+    padding: 0;
+}
 .text-field:focus {
     border-color: var(--border-color);
 }
@@ -2635,9 +2639,9 @@ blockquote {
     overflow-wrap: anywhere;
     margin-bottom: 0;
     padding: 0;
-    font-size: 25px;
-    font-weight: 600;
-    line-height: 41px;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 2em;
 }
 .testimonial-auther-position {
     text-transform: capitalize;
@@ -2654,14 +2658,9 @@ blockquote {
     background-color: var(--white-color);
     width: 50%;
     margin-right: 50px;
-    padding: 50px;
+    padding: 40px;
     box-shadow: 0 0 30px #000e521a;
-}
-.testimonial-mask.style2 {
-    background-color: var(--transparent);
-    box-shadow: none;
-    width: 90%;
-    overflow: visible;
+    height: 100%;
 }
 .testimonial-mask {
     border-radius: var(--border-radius-20);
@@ -2689,12 +2688,12 @@ blockquote {
 }
 .testimonial-auther-image {
     border-radius: 50px;
-    width: 80px;
-    height: 80px;
+    width: 55px;
+    height: 55px;
 }
 .testimonial-auther-name {
     text-transform: capitalize;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 30px;
 }
 .testimonial-auther-box {
@@ -2707,8 +2706,20 @@ blockquote {
 .testimonial-buttom-content {
     justify-content: space-between;
     align-items: center;
-    margin-top: 100px;
+    margin-top: 30px;
     display: flex;
+}
+
+.testimonial-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 30vh;
+}
+
+.quote-image {
+    width: 50px;
+    height: 50px;
 }
 .counter-item-box {
     z-index: 2;
@@ -2823,7 +2834,7 @@ blockquote {
     transform: rotate(-30deg);
 }
 .copyright-text {
-    color: #ffffffb3;
+    color: #ffffff;
     text-align: center;
     font-size: 15px;
 }
@@ -3277,7 +3288,7 @@ blockquote {
     padding-bottom: 120px;
 }
 .cta-2-section {
-    background-image: url(../images/bg-img-1.avif);
+    background-image: linear-gradient(#00000080, #00000080), url(../images/service-bg.jpg);
     background-position: 50%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -3717,7 +3728,7 @@ blockquote {
     font-weight: 500;
 }
 .info-link {
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 600;
     line-height: 34px;
 }
@@ -3841,7 +3852,8 @@ blockquote {
     background-image: radial-gradient(circle closest-corner at 50% 100%, #76C8E066, var(--transparent));
     height: 100vh;
     position: absolute;
-    inset: auto 0% -50vh;
+    /* inset: auto 0% -50vh; */
+    inset: auto 0% -35vh;
 }
 .shadow-gradient.style1 {
     background-image: radial-gradient(circle closest-corner at 50% 100%, #0009, var(--transparent));
@@ -3858,7 +3870,7 @@ blockquote {
 .cta-title-image {
     border-radius: var(--border-radius-80);
     vertical-align: middle;
-    background-image: url(../images/single-img-3.avif);
+    background-image: url(../images/cta-image.jpg);
     background-position: 50%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -3921,7 +3933,7 @@ blockquote {
     margin-right: 80px;
 }
 .section-title {
-    font-size: 48px;
+    font-size: 46px;
     line-height: 60px;
 }
 .service-title.dark {
@@ -4063,7 +4075,7 @@ blockquote {
     display: none;
 }
 .hero-section {
-    background-image: linear-gradient(#00000080, #00000080), url(../images/banner-img.avif);
+    background-image: linear-gradient(#00000080, #00000080), url(../images/banner-img.jpg);
     background-position: 0 0, 50%;
     background-repeat: repeat, no-repeat;
     background-size: auto, cover;
@@ -5010,4 +5022,13 @@ blockquote {
 
 .checklst-icon {
     margin-right: 5px;
+}
+
+.mr-10 {
+    margin-right: 10px;
+    min-width: 20px;
+}
+
+.fs-14 {
+    font-size: 14px;
 }

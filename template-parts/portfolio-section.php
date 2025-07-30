@@ -13,7 +13,7 @@
                 </div>
                 <div class="section-button-box">
                     <div class="button-block">
-                        <a href="/portfolio" class="button border-btn w-inline-block">
+                        <a href="/portfolios" class="button border-btn w-inline-block">
                             <div class="button-text">View all projects</div>
                         </a>
                     </div>
@@ -30,14 +30,14 @@
                             <?php
                             $portfolio_items = new WP_Query([
                                 'post_type'      => 'portfolio',
-                                'posts_per_page' => 6,
+                                'posts_per_page' => 4,
                             ]);
                             if ($portfolio_items->have_posts()) :
                                 while ($portfolio_items->have_posts()) : $portfolio_items->the_post(); ?>
                                     <div role="listitem" class="portfolio-item w-dyn-item">
-                                        <a href="<?php the_permalink(); ?>" class="portfolio-link-block w-inline-block">
+                                        <div class="portfolio-link-block w-inline-block">
                                             <div class="portfolio-image-box">
-                                                <img src="<?php the_post_thumbnail_url('medium'); ?>" loading="lazy" alt="Portfolio Image" sizes="(max-width: 479px) 100vw, (max-width: 767px) 96vw, 47vw" srcset="<?php the_post_thumbnail_url('medium'); ?> 500w, <?php the_post_thumbnail_url('medium'); ?> 900w" class="portfolio-image"/>
+                                                <img src="<?php the_post_thumbnail_url(); ?>" loading="lazy" alt="Portfolio Image" sizes="(max-width: 479px) 100vw, (max-width: 767px) 96vw, 47vw" srcset="<?php the_post_thumbnail_url(); ?> 500w, <?php the_post_thumbnail_url(); ?> 900w" class="portfolio-image"/>
                                             </div>
                                             <div class="portfolio-content-box">
                                                 <div class="portfolio-category">
@@ -50,7 +50,7 @@
                                                 </div>
                                                 <h3 class="portfolio-title"><?php the_title(); ?></h3>
                                             </div>
-                                        </a>
+                                        </div>
                                     </div>
                             <?php endwhile;
                                 wp_reset_postdata();
@@ -66,14 +66,14 @@
                             <?php
                             $portfolio_items = new WP_Query([
                                 'post_type'      => 'portfolio',
-                                'posts_per_page' => 6,
+                                'posts_per_page' => 4,
                             ]);
                             if ($portfolio_items->have_posts()) :
                                 while ($portfolio_items->have_posts()) : $portfolio_items->the_post(); ?>
                                     <div role="listitem" class="portfolio-item w-dyn-item">
-                                        <a href="<?php the_permalink(); ?>" class="portfolio-link-block w-inline-block">
+                                        <div class="portfolio-link-block w-inline-block">
                                             <div class="portfolio-image-box">
-                                                <img src="<?php the_post_thumbnail_url('medium'); ?>" loading="lazy" alt="Portfolio Image" sizes="(max-width: 479px) 100vw, (max-width: 767px) 96vw, 47vw" srcset="<?php the_post_thumbnail_url('medium'); ?> 500w, <?php the_post_thumbnail_url('medium'); ?> 900w" class="portfolio-image"/>
+                                                <img src="<?php the_post_thumbnail_url(); ?>" loading="lazy" alt="Portfolio Image" sizes="(max-width: 479px) 100vw, (max-width: 767px) 96vw, 47vw" srcset="<?php the_post_thumbnail_url(); ?> 500w, <?php the_post_thumbnail_url(); ?> 900w" class="portfolio-image"/>
                                             </div>
                                             <div class="portfolio-content-box">
                                                 <div class="portfolio-category">
@@ -86,7 +86,7 @@
                                                 </div>
                                                 <h3 class="portfolio-title"><?php the_title(); ?></h3>
                                             </div>
-                                        </a>
+                                        </div>
                                     </div>
                             <?php endwhile;
                                 wp_reset_postdata();

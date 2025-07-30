@@ -55,7 +55,7 @@
                     <div class="w-layout-grid about-section-grid">
                         <div class="about-image-box">
                             <div class="single-image-wrap">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/about-us.jpg" loading="lazy" sizes="(max-width: 479px) 100vw, (max-width: 767px) 96vw, (max-width: 991px) 500px, 961px" srcset="<?php echo get_template_directory_uri(); ?>/assets/images/single-img-1-p-500.avif 500w, <?php echo get_template_directory_uri(); ?>/assets/images/about-us.jpg 961w" alt="Single Image" class="single-image image-size"/>
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/about-us-1.jpg" loading="lazy" sizes="(max-width: 479px) 100vw, (max-width: 767px) 96vw, (max-width: 991px) 500px, 961px" srcset="<?php echo get_template_directory_uri(); ?>/assets/images/about-us-1.jpg 500w, <?php echo get_template_directory_uri(); ?>/assets/images/about-us-1.jpg 961w" alt="Single Image" class="single-image image-size"/>
                             </div>
                         </div>
                         <div id="w-node-daeabb09-8b41-0479-9f6a-325e3a54406d-fb6cd8c2" class="about-contact-box">
@@ -93,7 +93,7 @@
 
     <?php get_template_part('template-parts/services-section'); ?>
     <?php get_template_part('template-parts/why-us-section'); ?>
-    <!-- <?php get_template_part('template-parts/portfolio-section'); ?> -->
+    <?php get_template_part('template-parts/portfolio-section'); ?>
     <!-- <?php get_template_part('template-parts/team-section'); ?> -->
     <?php get_template_part('template-parts/cta-section'); ?>
     <?php get_template_part('template-parts/testimonial-section'); ?>

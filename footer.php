@@ -78,7 +78,7 @@
                 <!-- Uncomment if needed -->
                 <div class="copyright-text">
                     <a href="/" class="footer-link">Cypress Window Cleaning</a>
-                    @ <?php echo date('Y'); ?>. Powered by <a href="https://branderah.com" target="_blank" class="footer-link">Branderah</a>
+                    &copy; <?php echo date('Y'); ?>. Powered by <a href="https://branderah.com" target="_blank" class="footer-link">Branderah</a>
                 </div>
             </div>
         </div>

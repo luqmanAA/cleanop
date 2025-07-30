@@ -11,13 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title><?php wp_title('|', true, 'right'); bloginfo('name'); ?></title>
 
-    <meta name="description" content="Creating the first impression, guiding navigation, and driving user engagement and conversions." />
-    <meta property="og:title" content="Cleanflow - Webflow HTML website template" />
-    <meta property="og:description" content="Creating the first impression, guiding navigation, and driving user engagement and conversions." />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:title" content="Cleanflow - Webflow HTML website template" />
-    <meta name="twitter:description" content="Creating the first impression, guiding navigation, and driving user engagement and conversions." />
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="description" content="<?php bloginfo( 'description' ); ?>" />
+    <meta property="og:title" content="<?php wp_title( '|', true, 'right' ); ?><?php bloginfo( 'name' ); ?>" />
     
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
